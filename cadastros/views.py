@@ -6,14 +6,14 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 # CREATE
 
 
-class MarcaCreate(LoginRequiredMixin, CreateView):
+class MarcaCreate(CreateView):
     model = Marca
     fields = ["nome"]
     template_name = "cadastros/form.html"
     success_url = reverse_lazy("index")
 
 
-class ProdutoCreate(LoginRequiredMixin, CreateView):
+class ProdutoCreate(CreateView):
     model = Produto
     fields = ["nome", "preco", "codigo", "marca"]
     template_name = "cadastros/form.html"
@@ -23,14 +23,14 @@ class ProdutoCreate(LoginRequiredMixin, CreateView):
 # UPDATE
 
 
-class MarcaUpdate(LoginRequiredMixin, UpdateView):
+class MarcaUpdate(UpdateView):
     model = Marca
     fields = ["nome"]
     template_name = "cadastros/form.html"
     success_url = reverse_lazy("index")
 
 
-class ProdutoUpdate(LoginRequiredMixin, UpdateView):
+class ProdutoUpdate(UpdateView):
     model = Produto
     fields = ["nome", "preco", "codigo", "marca"]
     template_name = "cadastros/form.html"

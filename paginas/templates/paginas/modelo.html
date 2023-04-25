@@ -32,10 +32,9 @@
     {% block menu %}
 
     <header>
-        <!-- Fixed navbar -->
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Fixed navbar</a>
+                <a class="navbar-brand" href="#">Ciscos Skate Shop</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                     aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -43,7 +42,7 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-house"></i>>Inicio</a>
+                            <a class="nav-link active" aria-current="page" href="{% url 'index' %}"><i class="bi bi-house"></i>Inicio</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Link</a>
@@ -52,48 +51,14 @@
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Cadastros
                             </a>
-                            <a>
-                            <ul class="dropdown-menu" href="{%  url 'cadastrar-produto' %}">Produto</a>
-                        
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Dropdown
-                            </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
+                                <li><a class="dropdown-item" href="{% url 'cadastrar-marca' %}">Marca</a></li>
+                                <li><a class="dropdown-item" href="{% url 'cadastrar-produto' %}">Produto</a>
                                 </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
                         </li>
                         
-                        
-                        </ul>
-                        
-                        {% if not request.user.is_authenticated %}
-                        
-                        <a href="" class="btn btn-light">
-                            Login
-                        </a>
-                        
-                        {% else %}
-                        
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                {{ request.user.username }}
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Logout</a></li>
-                            </ul>
-                        </div>
-                        
-                        {% endif %}
+                        <li class="nav-item dropdown">                        
                     </ul>
                 </div>
             </div>
@@ -102,14 +67,16 @@
 
     {% endblock %}
 
-    <!-- Begin page content -->
     <main class="flex-shrink-0">
         <div class="container">
-            <h1 class="mt-5">Sticky footer with fixed navbar</h1>
-            <p class="lead">Pin a footer to the bottom of the viewport in desktop browsers with this custom HTML and
-                CSS. A fixed navbar has been added with <code class="small">padding-top: 60px;</code> on the <code
-                    class="small">main &gt; .container</code>.</p>
-            <p>Back to <a href="/docs/5.3/examples/sticky-footer/">the default sticky footer</a> minus the navbar.</p>
+            {% block conteudo %}
+    
+            <h1 class="mt-5">Cisco Skate Shop</h1>
+    
+            <p class="lead">Seja bem-vindo a Ciscos Skate Shop</p>
+    
+
+            {% endblock %}
         </div>
     </main>
 
