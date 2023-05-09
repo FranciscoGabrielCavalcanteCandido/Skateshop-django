@@ -44,6 +44,9 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="{% url 'index' %}"><i class="bi bi-house"></i>Inicio</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{% url 'pagina-sobre' %}"><i class="bi bi-house"></i>Sobre</a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Listagem
@@ -51,6 +54,7 @@
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="{% url 'listar-marca' %}">Marca</a></li>
                                 <li><a class="dropdown-item" href="{% url 'listar-produto' %}">Produto</a>
+                                <li><a class="dropdown-item" href="{% url 'listar-cliente' %}">Cliente</a>
                                 </li>
                             </ul>
                         </li>
@@ -61,6 +65,7 @@
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="{% url 'cadastrar-marca' %}">Marca</a></li>
                                 <li><a class="dropdown-item" href="{% url 'cadastrar-produto' %}">Produto</a>
+                                <li><a class="dropdown-item" href="{% url 'cadastrar-cliente' %}">Cliente</a>
                                 </li>
                             </ul>
                         </li>
@@ -99,7 +104,4 @@
 
 
 </body>
-
-
-
 </html>
