@@ -55,10 +55,10 @@ class Pagamento(models.Model):
     atualizado_em = models.DateTimeField(auto_now=True)
 
 
-class Pedido(models.Model):
+class Compra(models.Model):
     produtos = models.ForeignKey(
         Produto, on_delete=models.PROTECT, help_text="Selecione um Produto")
-    ciclo = models.IntegerField(verbose_name="Ciclo")
+    id_compra = models.IntegerField(verbose_name="ID Compra")
 
     criado_em = models.DateTimeField(auto_now_add=True)
     atualizado_em = models.DateTimeField(auto_now=True)

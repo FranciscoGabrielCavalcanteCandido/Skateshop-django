@@ -13,6 +13,8 @@ class MarcaCreate(CreateView):
     fields = ["nome"]
     template_name = "cadastros/form.html"
     success_url = reverse_lazy("listar-marca")
+    extra_context = {"titulo": "Cadastro de Marca"}
+
 
 
 class ProdutoCreate(CreateView):
@@ -20,6 +22,8 @@ class ProdutoCreate(CreateView):
     fields = ["nome", "preco", "codigo", "marca"]
     template_name = "cadastros/form.html"
     success_url = reverse_lazy("listar-produto")
+    extra_context = {"titulo": "Cadastro de Produto"}
+
 
 
 class ClienteCreate(CreateView):
@@ -27,6 +31,8 @@ class ClienteCreate(CreateView):
     fields = ["nome", "cpf", "telefone"]
     template_name = "cadastros/form.html"
     success_url = reverse_lazy("listar-cliente")
+    extra_context = {"titulo": "Cadastro de Cliente"}
+
 
 # UPDATE
 

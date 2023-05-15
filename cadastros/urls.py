@@ -14,7 +14,7 @@ urlpatterns = [
     path("listar/marca", MarcaList.as_view(), name="listar-marca"),
     path("excluir/marca/<int:pk>/", MarcaDelete.as_view(), name="excluir-marca"),
 
-    # URLS MARCA
+    # URLS PRODUTO
 
     path("cadastrar/produto", ProdutoCreate.as_view(), name="cadastrar-produto"),
     path("atualizar/produto/<int:pk>/",
