@@ -1,8 +1,9 @@
 from django.urls import path
-from .views import ClienteCreate, ClienteDelete, ClienteList, ClienteUpdate, MarcaCreate, MarcaUpdate
+from .views import ClienteCreate, ClienteDelete, ClienteList, ClienteUpdate
+from .views import ProdutoList, MarcaList, MarcaCreate, MarcaUpdate
 from .views import ProdutoCreate, ProdutoUpdate
-from .views import ProdutoList, MarcaList
 from .views import MarcaDelete, ProdutoDelete
+from .views import FuncionarioCreate, FuncionarioUpdate, FuncionárioDelete, FuncionarioList
 
 urlpatterns = [
     
@@ -31,4 +32,14 @@ urlpatterns = [
     path("listar/cliente", ClienteList.as_view(), name="listar-cliente"),
     path("excluir/cliente/<int:pk>/",
          ClienteDelete.as_view(), name="excluir-cliente"),
+
+    # URLS FUNCIONARIO
+
+    path("cadastrar/funcionario", FuncionarioCreate.as_view(), name="cadastrar-funcionario"),
+    path("atualizar/funcionario/<int:pk>/",
+         FuncionarioUpdate.as_view(), name="atualizar-funcionario"),
+    path("listar/cliente", FuncionarioList.as_view(), name="listar-funcionario"),
+    path("excluir/cliente/<int:pk>/",
+         FuncionárioDelete.as_view(), name="excluir-funcionario"),
+
 ]
