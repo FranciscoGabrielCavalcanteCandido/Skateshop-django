@@ -21,4 +21,6 @@ urlpatterns = [
     path("", include("paginas.urls")),
     path("", include("cadastros.urls")),
     path("login/", include("usuarios.urls")),
+
+    path("__debug__/", include("debug_toolbar.urls")),
 ]
