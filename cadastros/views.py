@@ -1,6 +1,7 @@
 from .models import Cliente, Marca, Produto, Funcionario
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin
 # from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.list import ListView
 
@@ -8,7 +9,7 @@ from django.views.generic.list import ListView
 # CREATE
 
 
-class MarcaCreate(CreateView):
+class MarcaCreate(CreateView, LoginRequiredMixin):
     model = Marca
     fields = ["nome"]
     template_name = "cadastros/form.html"
@@ -16,7 +17,7 @@ class MarcaCreate(CreateView):
     extra_context = {"titulo": "Cadastro de Marca"}
 
 
-class ProdutoCreate(CreateView):
+class ProdutoCreate(CreateView, LoginRequiredMixin):
     model = Produto
     fields = ["nome", "preco", "codigo", "marca"]
     template_name = "cadastros/form.html"
@@ -24,7 +25,7 @@ class ProdutoCreate(CreateView):
     extra_context = {"titulo": "Cadastro de Produto"}
 
 
-class ClienteCreate(CreateView):
+class ClienteCreate(CreateView, LoginRequiredMixin):
     model = Cliente
     fields = ["nome", "cpf", "telefone"]
     template_name = "cadastros/form.html"
@@ -32,7 +33,7 @@ class ClienteCreate(CreateView):
     extra_context = {"titulo": "Cadastro de Cliente"}
 
 
-class FuncionarioCreate(CreateView):
+class FuncionarioCreate(CreateView, LoginRequiredMixin):
     model = Funcionario
     fields = ["nome", "cpf", "telefone", "cargo"]
     template_name = "cadastros/form.html"
@@ -42,7 +43,7 @@ class FuncionarioCreate(CreateView):
 
 # UPDATE
 
-class MarcaUpdate(UpdateView):
+class MarcaUpdate(UpdateView, LoginRequiredMixin):
     model = Marca
     fields = ["nome"]
     template_name = "cadastros/form.html"
@@ -50,7 +51,7 @@ class MarcaUpdate(UpdateView):
     extra_context = {"titulo": "Atualizar Marca"}
 
 
-class ProdutoUpdate(UpdateView):
+class ProdutoUpdate(UpdateView, LoginRequiredMixin):
     model = Produto
     fields = ["nome", "preco", "codigo", "marca"]
     template_name = "cadastros/form.html"
@@ -58,7 +59,7 @@ class ProdutoUpdate(UpdateView):
     extra_context = {"titulo": "Atualizar Produto"}
 
 
-class ClienteUpdate(UpdateView):
+class ClienteUpdate(UpdateView, LoginRequiredMixin):
     model = Cliente
     fields = ["nome", "cpf", "telefone"]
     template_name = "cadastros/form.html"
@@ -66,7 +67,7 @@ class ClienteUpdate(UpdateView):
     extra_context = {"titulo": "Atualizar Cliente"}
 
 
-class FuncionarioUpdate(UpdateView):
+class FuncionarioUpdate(UpdateView, LoginRequiredMixin):
     model = Funcionario
     fields = ["nome", "cpf", "telefone", "cargo"]
     template_name = "cadastros/form.html"
@@ -76,25 +77,25 @@ class FuncionarioUpdate(UpdateView):
 
 # LIST
 
-class MarcaList(ListView):
+class MarcaList(ListView, LoginRequiredMixin):
     model = Marca
     template_name = "cadastros/list/marca.html"
     paginate_by = 10
 
 
-class ProdutoList(ListView):
+class ProdutoList(ListView, LoginRequiredMixin):
     model = Produto
     template_name = "cadastros/list/produto.html"
     paginate_by = 10
 
 
-class ClienteList(ListView):
+class ClienteList(ListView, LoginRequiredMixin):
     model = Cliente
     template_name = "cadastros/list/cliente.html"
     paginate_by = 10
 
 
-class FuncionarioList(ListView):
+class FuncionarioList(ListView, LoginRequiredMixin):
     model = Funcionario
     template_name = "cadastros/list/funcionario.html"
     paginate_by = 10
@@ -102,25 +103,25 @@ class FuncionarioList(ListView):
 
 # DELETE
 
-class MarcaDelete(DeleteView):
+class MarcaDelete(DeleteView, LoginRequiredMixin):
     model = Marca
     template_name = "cadastros/delete.html"
     success_url = reverse_lazy("listar-marca")
 
 
-class ProdutoDelete(DeleteView):
+class ProdutoDelete(DeleteView, LoginRequiredMixin):
     model = Produto
     template_name = "cadastros/delete.html"
     success_url = reverse_lazy("listar-produto")
 
 
-class ClienteDelete(DeleteView):
+class ClienteDelete(DeleteView, LoginRequiredMixin):
     model = Cliente
     template_name = "cadastros/delete.html"
     success_url = reverse_lazy("listar-cliente")
 
 
-class FuncionárioDelete(DeleteView):
+class FuncionárioDelete(DeleteView, LoginRequiredMixin):
     model = Funcionario
     template_name = "cadastros/delete.html"
     success_url = reverse_lazy("listar-funcionario")

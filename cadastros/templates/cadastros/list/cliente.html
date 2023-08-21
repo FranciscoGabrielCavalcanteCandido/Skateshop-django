@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block conteudo %}
-
+{% if request.user.is_authenticated %}
 <div class="row justify-content-center align-items-center mt-3">
     <div class="col-md-8">
         <h3 class="">Clientes</h3>
@@ -59,6 +59,14 @@
             {% endfor %}
         </tbody>
     </table>
+    {% else %}
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'login' %}">
+            <i class="fa fa-sign-in" aria-hidden="true"></i>
+            <button type="submit" class="btn btn-success">Entrar</button>
+        </a>
+    </li>
+    {% endif %}
 </div>
 
 {% endblock %}

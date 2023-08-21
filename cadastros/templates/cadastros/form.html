@@ -5,14 +5,25 @@
 {% load crispy_forms_tags %}
 
 {% block conteudo %}
+{% if request.user.is_authenticated %}
 <h1 class="mt-5">{{titulo|default:"Cadastro"}}</h1>
 
 <form action="" method="post">
+    
     {% csrf_token %}
 
     {{ form|crispy }}
+    
 
     <button type="submit" class="btn btn-success">Salvar</button>
 </form>
+{% else %}
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'login' %}">
+        <i class="fa fa-sign-in" aria-hidden="true"></i>
+        <button type="submit" class="btn btn-success">Entrar</button>
+    </a>
+</li>
+{% endif %}
 
 {% endblock %}
