@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Francisco Gabriel Cavalcante Candido">
-    
+
 
     <title>
         {% block title %}
@@ -43,13 +43,16 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{% url 'index' %}"><i class="bi bi-house"></i>Inicio</a>
+                            <a class="nav-link active" aria-current="page" href="{% url 'index' %}"><i
+                                    class="bi bi-house"></i>Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{% url 'pagina-sobre' %}"><i class="bi bi-house"></i>Sobre</a>
+                            <a class="nav-link active" aria-current="page" href="{% url 'pagina-sobre' %}"><i
+                                    class="bi bi-house"></i>Sobre</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
                                 Listagem
                             </a>
                             <ul class="dropdown-menu">
@@ -58,12 +61,13 @@
                                 <li><a class="dropdown-item" href="{% url 'listar-cliente' %}">Cliente</a>
                                 <li><a class="dropdown-item" href="{% url 'listar-funcionario' %}">Funcionário</a>
                                 <li><a class="dropdown-item" href="{% url 'listar-pedido' %}">Vendas</a>
-                                    <li><a class="dropdown-item" href="{% url 'listar-carrinho' %}">Carrinho</a>
+                                <li><a class="dropdown-item" href="{% url 'listar-carrinho' %}">Carrinho</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
                                 Cadastros
                             </a>
                             <ul class="dropdown-menu">
@@ -77,20 +81,21 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item dropdown">  
-                         {% endif %}
+                        <li class="nav-item dropdown">
+                            {% endif %}
                     </ul>
 
                     {% if not request.user.is_authenticated %}
-                    
+
                     <a href="{% url 'login' %}" class="btn btn-light">
                         Login
                     </a>
-                    
+
                     {% else %}
-                    
+
                     <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             {{ request.user.username }}
                         </button>
                         <ul class="dropdown-menu">
@@ -99,7 +104,7 @@
                             <li><a class="dropdown-item" href="{% url 'logout' %}">Sair</a></li>
                         </ul>
                     </div>
-                    
+
                     {% endif %}
                 </div>
             </div>
@@ -114,9 +119,9 @@
             {% block conteudo %}
             {% if request.user.is_authenticated %}
             <h1 class="mt-5">Ciscos Skate Shop</h1>
-    
+
             <p class="lead">Seja bem-vindo a Ciscos Skate Shop</p>
-    
+
             <img src="{% static 'assets/skate2.jpg' %}" alt="Skate1" style="width:600px; height:400px; ">
             <img src="{% static 'assets/skate3.jpg' %}" alt="Skate2" style="width:600px; height:400px; ">
             {% endif %}
@@ -131,13 +136,41 @@
         </div>
     </footer>
 
+    {% if messages %}
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    
+        {% for m in messages %}
+    
+        <div class="toast border-{{m.tags}}" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header border-{{m.tags}}">
+                <strong class="me-auto">Aviso</strong>
+                <small class="text-body-secondary">Agora</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                {{ m }}
+            </div>
+        </div>
+    
+        {% endfor %}
+    
+    </div>
+    {% endif %}
+
     <script src="{%static 'js/jquery.min.js'%}"></script>
     <script src="{%static 'js/popper.min.js'%}"></script>
     <script src="{%static 'js/bootstrap.min.js'%}"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('.toast').toast ('show')
+        });
+    </script>
 
     {% block scripts %}
     {% endblock %}
 
 
 </body>
+
 </html>
