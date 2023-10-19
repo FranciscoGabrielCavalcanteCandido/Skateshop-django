@@ -5,14 +5,44 @@
 {% load crispy_forms_tags %}
 
 {% block conteudo %}
-<h1 class="mt-4">Login</h1>
+<div class="container">
+    <div class="row justify-content-center align-items-center mt-5">
+        <div class="col-md-4 text-center mb-4">
+            <img src="/static/assets/CISCOS-19-10-2023.png" alt="Logo" class="img-fluid mt-4">
+        </div>
+        <div class="col-md-4">
+            <form method="post">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button type="submit" class="btn btn-success btn-block mt-4" style="background-color: blueviolet;">
+                    <i class="bi bi-check-lg"></i>
+                    Entrar
+                </button>
+                <i class="bi bi-eye-slash"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
 
-<form action="" method="post">
-    {% csrf_token %}
 
-    {{ form|crispy }}
+{% block scripts %}
+<script>
 
-    <button type="submit" class="btn btn-success">Entrar</button>
-</form>
+    $(document).ready(function () {
+
+        $(".btn-senha").click(function (e) {
+            var tipo = $("#id_password").attr("type");
+            if (tipo == "password") {
+                $("#id_password").attr("type", "text");
+            } else {
+                $("#id_password").attr("type", "password");
+            }
+        });
+
+    });
+
+</script>
 
 {% endblock %}
