@@ -8,7 +8,7 @@ from .views import PedidoCreate, PedidoList, PedidoDelete
 
 
 urlpatterns = [
-    
+
     # URLS MARCA
 
     path("cadastrar/marca", MarcaCreate.as_view(), name="cadastrar-marca"),
@@ -26,18 +26,19 @@ urlpatterns = [
     path("excluir/produto/<int:pk>/",
          ProdutoDelete.as_view(), name="excluir-produto"),
 
-     # URLS CLIENTE
+    # URLS CLIENTE
 
-     path("cadastrar/cliente", ClienteCreate.as_view(), name="cadastrar-cliente"),
-     path("atualizar/cliente/<int:pk>/",
-          ClienteUpdate.as_view(), name="atualizar-cliente"),
+    path("cadastrar/cliente", ClienteCreate.as_view(), name="cadastrar-cliente"),
+    path("atualizar/cliente/<int:pk>/",
+         ClienteUpdate.as_view(), name="atualizar-cliente"),
     path("listar/cliente", ClienteList.as_view(), name="listar-cliente"),
     path("excluir/cliente/<int:pk>/",
          ClienteDelete.as_view(), name="excluir-cliente"),
 
     # URLS FUNCIONARIO
 
-    path("cadastrar/funcionario", FuncionarioCreate.as_view(), name="cadastrar-funcionario"),
+    path("cadastrar/funcionario", FuncionarioCreate.as_view(),
+         name="cadastrar-funcionario"),
     path("atualizar/funcionario/<int:pk>/",
          FuncionarioUpdate.as_view(), name="atualizar-funcionario"),
     path("listar/cliente", FuncionarioList.as_view(), name="listar-funcionario"),
