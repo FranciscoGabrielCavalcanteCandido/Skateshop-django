@@ -19,6 +19,7 @@
 
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/sticky-footer-navbar.css' %}" rel="stylesheet">
+    
     <link href="https://cdn.datatables.net/v/bs5/dt-1.13.8/datatables.min.css" rel="stylesheet">
 
 
@@ -102,12 +103,10 @@
                             aria-expanded="false">
                             {{ request.user.username }}
                         </button>
-                        <ul class="dropdown-menu">
-                            <!--<li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>-->
-                            <li><a class="dropdown-item" href="{% url 'logout' %}">Sair</a></li>
-                        </ul>
-                    </div>
+                        <form method="post" action="{% url 'logout' %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-outline-light">Sair</button>
+                        </form>
 
                     {% endif %}
                 </div>
