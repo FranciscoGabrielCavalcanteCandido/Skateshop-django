@@ -19,6 +19,8 @@
 
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/sticky-footer-navbar.css' %}" rel="stylesheet">
+    <link href="https://cdn.datatables.net/v/bs5/dt-1.13.8/datatables.min.css" rel="stylesheet">
+
 
     <style>
         .bi {
@@ -94,7 +96,6 @@
                     </a>
 
                     {% else %}
-                    
 
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
@@ -163,6 +164,10 @@
     <script src="{%static 'js/jquery.min.js'%}"></script>
     <script src="{%static 'js/popper.min.js'%}"></script>
     <script src="{%static 'js/bootstrap.min.js'%}"></script>
+    <script src="https://cdn.datatables.net/v/bs5/dt-1.13.8/datatables.min.js"></script>
+
+
+    
 
     <script>
         $(document).ready(function () {
