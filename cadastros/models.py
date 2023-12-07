@@ -42,7 +42,7 @@ class Cliente(models.Model):
     atualizado_em = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"Nome: {self.nome} | CPF: {self.cpf} | Telefone: {self.telefone} | CEP: {self.cep} | Logradouro: {self.logradouro} | Numero: {self.numero} | Bairro: {self.bairro} | Cidade: {self.cidade}"
+        return f"Nome: {self.nome} | CPF: {self.cpf} | Telefone: {self.telefone}"
 
 
 class Pagamento(models.Model):
