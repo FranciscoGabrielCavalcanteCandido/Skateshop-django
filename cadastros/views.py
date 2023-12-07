@@ -36,7 +36,7 @@ class ProdutoCreate(SuccessMessageMixin, CreateView, LoginRequiredMixin):
 
 class ClienteCreate(SuccessMessageMixin, CreateView, LoginRequiredMixin):
     model = Cliente
-    fields = ["nome", "cpf", "telefone"]
+    fields = ["nome", "cpf", "telefone","cep", "logradouro", "numero","bairro","cidade"]
     template_name = "cadastros/form.html"
     success_url = reverse_lazy("listar-cliente")
     extra_context = {"titulo": "Cadastro de Cliente"}
@@ -78,7 +78,7 @@ class ProdutoUpdate(SuccessMessageMixin, UpdateView, LoginRequiredMixin):
 
 class ClienteUpdate(SuccessMessageMixin, UpdateView, LoginRequiredMixin):
     model = Cliente
-    fields = ["nome", "cpf", "telefone"]
+    fields = ["nome", "cpf", "telefone","cep", "logradouro", "numero","bairro","cidade"]
     template_name = "cadastros/form.html"
     success_url = reverse_lazy("listar-cliente")
     extra_context = {"titulo": "Atualizar Cliente"}

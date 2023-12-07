@@ -32,12 +32,17 @@ class Cliente(models.Model):
     nome = models.CharField(max_length=55)
     cpf = models.CharField(max_length=14, verbose_name="CPF", unique=True)
     telefone = models.CharField(max_length=15)
+    cep = models.CharField(max_length=10, verbose_name="CEP")
+    logradouro = models.CharField(max_length=100)
+    numero = models.CharField(max_length=20, verbose_name="Número", null=True, blank=True)
+    bairro = models.CharField(max_length=50, null=True, blank=True)
+    cidade = models.CharField(max_length=50)
 
     criado_em = models.DateTimeField(auto_now_add=True)
     atualizado_em = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"Nome: {self.nome} | CPF: {self.cpf} | Telefone: {self.telefone}"
+        return f"Nome: {self.nome} | CPF: {self.cpf} | Telefone: {self.telefone} | CEP: {self.cep} | Logradouro: {self.logradouro} | Numero: {self.numero} | Bairro: {self.bairro} | Cidade: {self.cidade}"
 
 
 class Pagamento(models.Model):
